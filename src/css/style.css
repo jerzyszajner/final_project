@@ -1,0 +1,164 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(../assets/fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(../assets/fonts/Roboto-Bold.ttf);
+    font-weight: 600;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Roboto-Regular;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-medium) var(--spacing-medium);
+    background-color: var(--primary-color);
+    font-family: Roboto-Bold, sans-serif;
+}
+
+.navbar__logo-container {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar__logo {
+    width: 44px;
+    height: 44px;
+}
+
+.navbar__links-container {
+    flex-grow: 1;
+}
+
+.navbar__links {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-large);
+}
+
+.navbar__link a {
+    color: var(--secondary-color);
+    font-size: var(--font-size-medium);
+    opacity: 0.6;
+    transition: opacity 0.3s linear;
+    text-decoration: none;
+}
+
+.navbar__link a:hover {
+    opacity: 1;
+}
+
+.navbar__link--active {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.navbar__link--active:hover {
+    opacity: 1;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../assets/images/background-inage.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.video__player {
+    width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: none;
+    transition: border-color 0.3s linear, opacity 0.3s linear, background-color 0.3s linear;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+button:hover {
+    border-color: var(--button-hover-color);
+    opacity: 1;
+}
+
+.video__button {
+    width: 8rem;
+    padding: 1rem;
+}
+
+.video__button-skip {
+    width: 6rem;
+    padding: 0.5rem;
+    margin: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium) auto
+}
+
+.choice__buttons {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.choice__button {
+    width: 6rem;
+    padding: 0.5rem;
+}
+
+.choice__button--blue {
+    border-color: var(--button-blue-color);
+}
+
+.choice__button--blue:hover {
+    border-color: var(--button-blue-color);
+    background-color: var(--button-blue-color);
+}
+
+.choice__button--red {
+    border-color: var(--button-red-color);
+}
+
+.choice__button--red:hover {
+    border-color: var(--button-red-color);
+    background-color: var(--button-red-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.no-background {
+    background-image: none;
+}
