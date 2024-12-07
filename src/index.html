@@ -28,8 +28,10 @@
   </head>
   <body>
     <header>
+      <!-- Navbar with logo and navigation links -->
       <nav class="navbar sticky">
         <div class="navbar__logo-container">
+          <!-- Website logo -->
           <img
             src="./assets/icons/main-logo.svg"
             alt="Website main logo"
@@ -37,6 +39,7 @@
           />
         </div>
         <div class="navbar__links-container">
+          <!-- Active links -->
           <ul class="navbar__links">
             <li class="navbar__link navbar__link--active">
               <a href="#" class="navbar__home-link">Home</a>
@@ -47,6 +50,7 @@
       </nav>
     </header>
     <main>
+      <!-- Section video -->
       <section class="video">
         <div class="video__container">
           <video
@@ -58,13 +62,39 @@
           </video>
           <button class="video__button">Start Video</button>
           <button class="video__button-skip hidden">Skip Video</button>
-          <div class="choice__buttons hidden">
-            <button class="choice__button choice__button--blue">
-              Blue Pill
-            </button>
-            <button class="choice__button choice__button--red">Red Pill</button>
-          </div>
         </div>
+      </section>
+      <!-- Section Choice Pill -->
+      <section class="choice hidden">
+        <h3 class="choice__heading">Make Your Choice</h3>
+        <div class="choice__buttons">
+          <button class="choice__button choice__button--blue">Blue Pill</button>
+          <button class="choice__button choice__button--red">Red Pill</button>
+        </div>
+      </section>
+      <!-- Section Blue Pill -->
+      <section class="audio hidden">
+        <span class="audio__heading">
+          You are in your comfort zone. Here, you can stay as long as you like,
+          listening to music and enjoying peace. But remember – when you're
+          ready to face the real life, you can always
+          <button class="audio__return-button">Return</button> to the previous
+          menu and choose the red pill. Courage is the path to truth.
+        </span>
+        <div class="audio__controls">
+          <button class="audio__button audio__button--pause">Pause</button>
+          <button class="audio__button audio__button--play">Play</button>
+          <input
+            type="range"
+            name="audio__volume"
+            class="audio__volume"
+            min="0"
+            max="1"
+            step="0.05"
+            value="0.25"
+          />
+        </div>
+        <audio class="audio__player" preload="none"></audio>
       </section>
     </main>
 

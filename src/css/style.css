@@ -18,9 +18,11 @@ body {
     background-color: var(--secondary-color);
 }
 
+/* Header secton */
 header {
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -33,8 +35,8 @@ header {
 }
 
 .navbar__logo-container {
-    width: 48px;
-    height: 48px;
+    width: 55px;
+    height: 55px;
     border: 1px solid var(--secondary-color);
     border-radius: 50%;
     display: flex;
@@ -43,8 +45,8 @@ header {
 }
 
 .navbar__logo {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
 }
 
 .navbar__links-container {
@@ -61,7 +63,7 @@ header {
 
 .navbar__link a {
     color: var(--secondary-color);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-large);
     opacity: 0.6;
     transition: opacity 0.3s linear;
     text-decoration: none;
@@ -79,6 +81,7 @@ header {
     opacity: 1;
 }
 
+/* Main section */
 main {
     width: 100%;
     min-height: 100vh;
@@ -91,6 +94,7 @@ main {
     justify-content: center;
 }
 
+/* Video section */
 .video__container {
     display: flex;
     flex-direction: column;
@@ -106,14 +110,19 @@ button {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
-    transition: border-color 0.3s linear, opacity 0.3s linear, background-color 0.3s linear;
+    transition: border-color 0.3s linear, opacity 0.3s linear;
     border-radius: 50%;
     opacity: 0.6;
+    min-width: 4rem;
 }
 
 button:hover {
     border-color: var(--button-hover-color);
     opacity: 1;
+}
+
+button:active {
+    color: var(--button-red-color);
 }
 
 .video__button {
@@ -125,6 +134,19 @@ button:hover {
     width: 6rem;
     padding: 0.5rem;
     margin: var(--spacing-medium) var(--spacing-medium) var(--spacing-medium) auto
+}
+
+/* Choince section */
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.choice__heading {
+    font-size: var(--font-size-medium);
+    opacity: 0.6;
 }
 
 .choice__buttons {
@@ -143,7 +165,10 @@ button:hover {
 
 .choice__button--blue:hover {
     border-color: var(--button-blue-color);
-    background-color: var(--button-blue-color);
+}
+
+.choice__button--blue:active {
+    color: var(--button-blue-color);
 }
 
 .choice__button--red {
@@ -152,7 +177,55 @@ button:hover {
 
 .choice__button--red:hover {
     border-color: var(--button-red-color);
-    background-color: var(--button-red-color);
+}
+
+/* Section blue pill */
+.audio {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.audio__heading {
+    font-family: 'Roboto-Bold', sans-serif;
+    color: var(--secondary-color);
+    text-align: center;
+    line-height: 1.5;
+    font-size: var(--font-size-medium);
+    /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-medium);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    position: absolute;
+    bottom: 2rem;
+}
+
+.audio__return-button {
+    width: 4.5rem;
+    padding: 0.5rem;
+}
+
+.audio__controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-large);
+}
+
+.audio__button {
+    width: 4rem;
+    padding: 0.5rem;
+}
+
+.background-image {
+    background-image: none;
 }
 
 .hidden {
