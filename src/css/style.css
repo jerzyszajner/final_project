@@ -13,7 +13,7 @@
 body {
     width: 100%;
     min-height: 100vh;
-    font-family: Roboto-Regular;
+    font-family: Roboto-Regular, sans-serif;
     color: var(--primary-color);
     background-color: var(--secondary-color);
 }
@@ -112,7 +112,7 @@ button {
     background: none;
     transition: border-color 0.3s linear, opacity 0.3s linear;
     border-radius: 50%;
-    opacity: 0.6;
+    opacity: 0.7;
     min-width: 4rem;
 }
 
@@ -192,23 +192,25 @@ button:active {
 
 .audio__heading {
     font-family: 'Roboto-Bold', sans-serif;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-align: center;
     line-height: 1.5;
     font-size: var(--font-size-medium);
     /* Semi-transparent background */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: var(--spacing-medium);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     position: absolute;
-    bottom: 2rem;
+    bottom: var(--spacing-small);
 }
 
 .audio__return-button {
     width: 4.5rem;
-    padding: 0.5rem;
+    padding: var(--spacing-small);
+    border-color: var(--button-hover-color);
+    font-size: var(--font-size-small);
 }
 
 .audio__controls {
@@ -224,6 +226,108 @@ button:active {
     padding: 0.5rem;
 }
 
+/* Section red pill */
+.education {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--backgroud-blue-color);
+}
+
+.education__heading {
+    margin-top: var(--spacing-large);
+    font-family: 'Roboto-Bold', sans-serif;
+    color: var(--primary-color);
+    text-align: center;
+    line-height: 1.5;
+    font-size: var(--font-size-medium);
+    /* Semi-transparent background */
+    background-color: var(--backgroud-transparent-color);
+    padding: var(--spacing-medium);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+}
+
+.education__return-button {
+    width: 4.5rem;
+    padding: 0.5rem;
+    border-color: var(--button-hover-color);
+    font-size: var(--font-size-small);
+}
+
+.education__search {
+    padding: var(--spacing-large) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-small);
+}
+
+.education__search-label {
+    font-size: var(--font-size-medium);
+}
+
+.education__search-input {
+    min-width: 300px;
+    height: 35px;
+    padding: 0 var(--spacing-small);
+    font-size: var(--font-size-small);
+}
+
+.education__controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.education__buttons {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.education__button-item {
+    display: inline-block;
+}
+
+.education__button-item button {
+    height: 3.5rem;
+    width: 5rem;
+}
+
+.education__list {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-medium);
+    padding: var(--spacing-large) var(--spacing-medium);
+    justify-self: center;
+}
+
+.education__card {
+    color: var(--primary-color);
+    line-height: 1.5;
+    font-size: var(--font-size-small);
+    /* Semi-transparent background */
+    background-color: var(--backgroud-transparent-color);
+    padding: var(--spacing-medium);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.education__name {
+    font-size: var(--font-size-medium);
+}
+
+.education__favorite-button {
+    width: var(--spacing-large);
+    height: var(--spacing-large);
+    font-size: var(--font-size-small);
+    border: none;
+}
+
 .background-image {
     background-image: none;
 }
@@ -234,4 +338,10 @@ button:active {
 
 .no-background {
     background-image: none;
+}
+
+@media screen and (max-width: 600px) {
+    .audio__volume {
+        display: none;
+    }
 }

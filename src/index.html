@@ -44,7 +44,7 @@
             <li class="navbar__link navbar__link--active">
               <a href="#" class="navbar__home-link">Home</a>
             </li>
-            <li class="navbar__link"><a href="#">About</a></li>
+            <li class="navbar__link hidden"><a href="#">Radio</a></li>
           </ul>
         </div>
       </nav>
@@ -57,6 +57,7 @@
             class="video__player hidden"
             controls
             controlslist="nofullscreen"
+            playsinline
           >
             <source src="./assets/video/video.mp4" type="video/mp4" />
           </video>
@@ -79,7 +80,7 @@
           listening to music and enjoying peace. But remember – when you're
           ready to face the real life, you can always
           <button class="audio__return-button">Return</button> to the previous
-          menu and choose the red pill. Courage is the path to truth.
+          menu and choose the red pill.
         </span>
         <div class="audio__controls">
           <button class="audio__button audio__button--pause">Pause</button>
@@ -95,6 +96,51 @@
           />
         </div>
         <audio class="audio__player" preload="none"></audio>
+      </section>
+      <!-- Section Red Pill -->
+      <section class="education hidden">
+        <span class="education__heading">
+          Welcome to the Real World! Life outside the comfort zone is full of
+          challenges, but it's also where REAL dreams come true. Choose a field
+          of study, embrace knowledge, and start shaping your future today. If
+          you'd like to go back, you can always
+          <button class="education__return-button">Return</button> to the
+          previous menu.
+        </span>
+
+        <div class="education__search">
+          <label for="search" class="education__search-label">Search:</label>
+          <input
+            id="search"
+            type="search"
+            placeholder="Type to search by name or location..."
+            class="education__search-input"
+          />
+        </div>
+
+        <!-- List of buttons for sorting by prica and toggling favorites -->
+        <div class="education__controls">
+          <ul class="education__buttons">
+            <li class="education__button-item">
+              <button class="show-all-button">Show All Programs</button>
+            </li>
+            <li class="education__button-item">
+              <button class="show-favorites-button">Show Favorites</button>
+            </li>
+            <li class="education__button-item">
+              <button class="education__sort-button" data-sort="price-low">
+                Low Price
+              </button>
+            </li>
+            <li class="education__button-item">
+              <button class="education__sort-button" data-sort="price-high">
+                High Price
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="education__list"></div>
       </section>
     </main>
 

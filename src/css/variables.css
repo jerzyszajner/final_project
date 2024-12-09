@@ -2,6 +2,8 @@
     /* Colors */
     --primary-color: #ffffff;
     --secondary-color: #000000;
+    --backgroud-blue-color: #055388;
+    --backgroud-transparent-color: #ffffff1d;
     --button-blue-color: #0099ff;
     --button-red-color: #ff0000;
     --button-hover-color: #01fb01;
@@ -11,6 +13,7 @@
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
     --spacing-x-large: 3rem;
+    --spacing-xx-large: 4rem;
 
     /* Font size */
     --font-size-x-small: 0.5rem;
