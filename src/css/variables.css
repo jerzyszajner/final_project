@@ -3,10 +3,12 @@
     --primary-color: #ffffff;
     --secondary-color: #000000;
     --backgroud-blue-color: #055388;
-    --backgroud-transparent-color: #ffffff1d;
+    --footer-background-color: #fdfdfdd3;
+    --backgroud-transparent-color: #524e4d;
     --button-blue-color: #0099ff;
     --button-red-color: #ff0000;
     --button-hover-color: #01fb01;
+    --footer-hover-color: #147914;
 
     /* Spacing */
     --spacing-small: 0.5rem;

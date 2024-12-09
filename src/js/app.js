@@ -438,7 +438,7 @@ function renderEducationPrograms(educationsProgramsArray) {
     educationDuration.textContent = `Duration: ${educationProgram.duration}`;
     educationLangue.textContent = `Langue: ${educationProgram.language}`;
     educationCredits.textContent = `Credits: ${educationProgram.credits}`;
-    educationPrice.textContent = `Price: ${educationProgram.price}`;
+    educationPrice.textContent = `Price: ${educationProgram.price} NOK`;
     educationFavoriteButton.textContent = educationProgram.isFavorited
       ? "❤️"
       : "♡";
