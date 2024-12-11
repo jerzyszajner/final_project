@@ -59,8 +59,8 @@ The data structure (e.g., keys like name, location, school) was manually created
 - **Streaming Music:** [Ibiza Global Radio](https://www.ibizaglobalradio.com/)
 - **Inspiration Video:** [Vimeo Matrix Clip](https://vimeo.com/groups/423128/videos/7619378)
 
-## License  
-- License is found in the [lincese.txt](license.txt)
+## License
+- License is found in the [License.txt](License.txt)
 
 ## Contact Information
 
