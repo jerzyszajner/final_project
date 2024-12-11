@@ -221,6 +221,30 @@ button:active {
     gap: var(--spacing-large);
 }
 
+/* Style the range input for Safari */
+.audio__volume {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.audio__volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #007aff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4.5px;
+}
+
+.audio__volume::-webkit-slider-runnable-track {
+    background: #5f5f5f73;
+    height: 4px;
+}
+
 .audio__button {
     width: 4rem;
     padding: 0.5rem;
