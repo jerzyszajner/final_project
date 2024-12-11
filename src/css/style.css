@@ -225,7 +225,7 @@ button:active {
 .audio__volume {
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 5px;
+    border-radius: 6px;
     width: 100px;
 }
 
@@ -237,7 +237,7 @@ button:active {
     background: #007aff;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: -4.5px;
+    margin-top: -4.6px;
 }
 
 .audio__volume::-webkit-slider-runnable-track {
@@ -246,7 +246,7 @@ button:active {
 }
 
 .audio__button {
-    width: 4rem;
+    width: var(--spacing-xx-large);
     padding: 0.5rem;
 }
 
