@@ -49,9 +49,10 @@ The project demonstrates knowledge in responsive design, JavaScript logic, and d
 - **Devices:** iPhone 13 Pro Max.
 - **Methods:** Manual testing and debugging using browser developer tools.
 
-## Data Generatio
+## Data Generation
 
-The data structure (e.g., keys like name, location, school) was manually created. GPT was used only to generate placeholder values such as program names, locations, and details (e.g., Business Administration in Stavanger).
+- The data structure (e.g., keys like name, location, school) was manually created. GPT was used only to generate placeholder values such as program 
+  names, locations, and details (e.g., Business Administration in Stavanger).
 
 ## Credits
 
@@ -61,6 +62,9 @@ The data structure (e.g., keys like name, location, school) was manually created
 
 ## License
 - License is found in the [License.txt](License.txt)
+
+## Documentation 
+- Project documentation is found in the [project-documentation.pdf](project-documentation.pdf)
 
 ## Contact Information
 
