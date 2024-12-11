@@ -25,7 +25,7 @@
       href="./assets/icons/favicon-android-chrome-192x192.png"
       type="image/png"
     />
-    <title>Blue Pill or Red Pill</title>
+    <title>Choose Your Pill</title>
   </head>
   <body>
     <header>
@@ -62,16 +62,30 @@
           >
             <source src="./assets/video/video.mp4" type="video/mp4" />
           </video>
-          <button class="video__button">Start Video</button>
-          <button class="video__button-skip hidden">Skip Video</button>
+          <button class="video__button" aria-label="Start Video">
+            Start Video
+          </button>
+          <button class="video__button-skip hidden" aria-label="Skip Video">
+            Skip Video
+          </button>
         </div>
       </section>
       <!-- Section Choice Pill -->
       <section class="choice hidden">
-        <h3 class="choice__heading">Make Your Choice</h3>
+        <h3 class="choice__heading">Choose Your Pill</h3>
         <div class="choice__buttons">
-          <button class="choice__button choice__button--blue">Blue Pill</button>
-          <button class="choice__button choice__button--red">Red Pill</button>
+          <button
+            class="choice__button choice__button--blue"
+            aria-label="Choose Blue Pill"
+          >
+            Blue Pill
+          </button>
+          <button
+            class="choice__button choice__button--red"
+            aria-label="Choose Red Pill"
+          >
+            Red Pill
+          </button>
         </div>
       </section>
       <!-- Section Blue Pill -->
@@ -80,12 +94,27 @@
           You are in your comfort zone. Here, you can stay as long as you like,
           listening to music and enjoying peace. But remember – when you're
           ready to face the real life, you can always
-          <button class="audio__return-button">Return</button> to the previous
-          menu and choose the red pill.
+          <button
+            class="audio__return-button"
+            aria-label="Return to Previous Menu"
+          >
+            Return
+          </button>
+          to the previous menu and choose the red pill.
         </span>
         <div class="audio__controls">
-          <button class="audio__button audio__button--pause">Pause</button>
-          <button class="audio__button audio__button--play">Play</button>
+          <button
+            class="audio__button audio__button--pause"
+            aria-label="Pause Audio"
+          >
+            Pause
+          </button>
+          <button
+            class="audio__button audio__button--play"
+            aria-label="Play Audio"
+          >
+            Play
+          </button>
           <input
             type="range"
             name="audio__volume"
@@ -105,8 +134,13 @@
           challenges, but it's also where REAL dreams come true. Choose a field
           of study, embrace knowledge, and start shaping your future today. If
           you'd like to go back, you can always
-          <button class="education__return-button">Return</button> to the
-          previous menu.
+          <button
+            class="education__return-button"
+            aria-label="Return to Previous Menu"
+          >
+            Return
+          </button>
+          to the previous menu.
         </span>
 
         <div class="education__search">
@@ -123,18 +157,30 @@
         <div class="education__controls">
           <ul class="education__buttons">
             <li class="education__button-item">
-              <button class="show-all-button">Show All Programs</button>
+              <button class="show-all-button" aria-label="Show All Programs">
+                Show All Programs
+              </button>
             </li>
             <li class="education__button-item">
-              <button class="show-favorites-button">Show Favorites</button>
+              <button class="show-favorites-button" aria-label="Show Favorites">
+                Show Favorites
+              </button>
             </li>
             <li class="education__button-item">
-              <button class="education__sort-button" data-sort="price-low">
+              <button
+                class="education__sort-button"
+                data-sort="price-low"
+                aria-label="Sort by Low Price"
+              >
                 Low Price
               </button>
             </li>
             <li class="education__button-item">
-              <button class="education__sort-button" data-sort="price-high">
+              <button
+                class="education__sort-button"
+                data-sort="price-high"
+                aria-label="Sort by High Price"
+              >
                 High Price
               </button>
             </li>
@@ -154,7 +200,8 @@
           <a
             class="footer__link"
             href="#"
-            title="Visit Rocket Espresso"
+            title="Visit Instagram"
+            aria-label="Visit Instagram"
             target="_blank"
             rel="noopener noreferrer"
             >Instagram</a
@@ -164,7 +211,8 @@
           <a
             class="footer__link"
             href="#"
-            title="Visit Rocket Espresso"
+            title="Visit Facebook"
+            aria-label="Visit Facebook"
             target="_blank"
             rel="noopener noreferrer"
             >Facebook</a
@@ -174,17 +222,19 @@
           <a
             class="footer__link"
             href="#"
-            title="Visit Rocket Espresso"
+            title="Visit LinkedIn"
+            aria-label="Visit LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
-            >Linkedin</a
+            >LinkedIn</a
           >
         </li>
         <li class="footer__item">
           <a
             class="footer__link"
             href="#"
-            title="Visit Rocket Espresso"
+            title="Visit Vimeo"
+            aria-label="Visit Vimeo"
             target="_blank"
             rel="noopener noreferrer"
             >Vimeo</a

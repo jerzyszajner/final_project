@@ -361,7 +361,8 @@ const handleAudioControls = (e) => {
     // Set the audio source and play
     audioPlayer.src =
       "https://listenssl.ibizaglobalradio.com:8024/ibizaglobalradio.mp3";
-    audioPlayer.play();
+
+    https: audioPlayer.play();
   } else if (e.target.classList.contains("audio__button--pause")) {
     // Pause audio and remove the source
     audioPlayer.pause();

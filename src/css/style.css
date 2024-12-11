@@ -203,7 +203,7 @@ button:active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     position: absolute;
-    bottom: var(--spacing-small);
+    bottom: 0;
 }
 
 .audio__return-button {
@@ -315,6 +315,7 @@ button:active {
     padding: var(--spacing-medium);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 .education__name {
@@ -324,8 +325,11 @@ button:active {
 .education__favorite-button {
     width: var(--spacing-large);
     height: var(--spacing-large);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-large);
     border: none;
+    position: absolute;
+    top: 5px;
+    right: -10px;
 }
 
 .background-image {
