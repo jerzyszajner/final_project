@@ -223,8 +223,9 @@ const educationPrograms = [
 
 // Selecting DOM elements
 const links = document.querySelectorAll(".navbar__link");
+const homeSection = document.querySelector(".home");
+const videoSection = document.querySelector(".video");
 const videoPlayer = document.querySelector(".video__player");
-const playButton = document.querySelector(".video__button");
 const skipButton = document.querySelector(".video__button-skip");
 const choiceSection = document.querySelector(".choice");
 const choiceButtonsContainer = document.querySelector(".choice__buttons");
@@ -265,7 +266,7 @@ const resetAudioPlayer = () => {
 const resetVideo = () => {
   videoPlayer.pause();
   videoPlayer.currentTime = 0;
-  videoPlayer.classList.add("hidden");
+  videoSection.classList.add("hidden");
   skipButton.classList.add("hidden");
 };
 
@@ -276,7 +277,7 @@ const handleLinkClick = (e) => {
   e.currentTarget.classList.add("navbar__link--active");
 
   if (e.currentTarget.textContent === "Radio") {
-    playButton.classList.add("hidden");
+    homeSection.classList.add("hidden");
     audioSection.classList.remove("hidden");
     educationSection.classList.add("hidden");
     mainBackground.classList.remove("no-background");
@@ -309,12 +310,12 @@ const markRadioAsVisible = () => {
 
 // Handle video controls
 const handleVideoControls = (e) => {
-  if (e.target.classList.contains("video__button")) {
+  if (e.target.classList.contains("home__start-video-button")) {
     // Start video player
     mainBackground.classList.add("no-background");
-    videoPlayer.classList.remove("hidden");
+    videoSection.classList.remove("hidden");
     videoPlayer.play();
-    playButton.classList.add("hidden");
+    homeSection.classList.add("hidden");
     skipButton.classList.remove("hidden");
   } else if (e.target.classList.contains("video__button-skip")) {
     videoPlayer.currentTime = 36;
@@ -323,7 +324,7 @@ const handleVideoControls = (e) => {
     e.preventDefault();
     resetAudioPlayer();
     resetVideo();
-    playButton.classList.remove("hidden");
+    homeSection.classList.remove("hidden");
     choiceSection.classList.add("hidden");
     mainBackground.classList.remove("no-background");
     audioSection.classList.add("hidden");
@@ -335,7 +336,7 @@ const handleVideoControls = (e) => {
 const handleVideoEnd = () => {
   // Reset video and show choices when video ends
   resetVideo();
-  playButton.classList.add("hidden");
+  homeSection.classList.add("hidden");
   choiceSection.classList.remove("hidden");
   mainBackground.classList.remove("no-background");
   links.forEach((link) => link.classList.remove("navbar__link--active"));
@@ -533,7 +534,7 @@ document.addEventListener("DOMContentLoaded", initializeApp);
 
 // Add event listeners
 links.forEach((link) => link.addEventListener("click", handleLinkClick));
-playButton.addEventListener("click", handleVideoControls);
+homeSection.addEventListener("click", handleVideoControls);
 skipButton.addEventListener("click", handleVideoControls);
 videoPlayer.addEventListener("ended", handleVideoEnd);
 homeLink.addEventListener("click", handleVideoControls);

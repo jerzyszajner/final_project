@@ -51,20 +51,26 @@
       </nav>
     </header>
     <main>
+      <!-- Section home -->
+      <section class="home">
+        <button class="home__start-video-button" aria-label="Start Video">
+          Start Video
+        </button>
+      </section>
       <!-- Section video -->
-      <section class="video">
+      <section class="video hidden">
         <div class="video__container">
           <video
-            class="video__player hidden"
+            class="video__player"
             controls
             controlslist="nofullscreen"
             playsinline
           >
             <source src="./assets/video/video.mp4" type="video/mp4" />
           </video>
-          <button class="video__button" aria-label="Start Video">
+          <!-- <button class="video__button" aria-label="Start Video">
             Start Video
-          </button>
+          </button> -->
           <button class="video__button-skip hidden" aria-label="Skip Video">
             Skip Video
           </button>

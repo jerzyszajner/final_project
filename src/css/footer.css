@@ -50,24 +50,22 @@
         padding: var(--spacing-small);
     }
 
-    .footer__paragraph {
-        font-size: var(--font-size-base);
-    }
+    .footer__paragraph {}
 
-    .footer__list {
-        gap: var(--spacing-xxlarge);
-    }
-}
-
-/* Styles for mobile devices and small screens */
-@media screen and (max-width: 500px) {
-
-    /* Footer styles */
     .footer__list {
         gap: var(--spacing-medium);
     }
+}
+
+@media screen and (max-width: 430px) {
+
+    /* Footer styles */
 
     .footer__paragraph {
-        font-size: var(--font-size-xsmall);
+        font-size: small;
+    }
+
+    .footer__list {
+        gap: var(--spacing-medium);
     }
 }

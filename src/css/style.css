@@ -10,12 +10,16 @@
     font-weight: 600;
 }
 
+html,
 body {
     width: 100%;
     min-height: 100vh;
+    /* height: 100%; */
     font-family: Roboto-Regular, sans-serif;
     color: var(--primary-color);
     background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header secton */
@@ -25,13 +29,14 @@ header {
     z-index: 1000;
 }
 
+/* Navbar */
 .navbar {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: var(--spacing-medium) var(--spacing-medium);
+    padding: var(--spacing-medium);
     background-color: var(--primary-color);
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto-regular, sans-serif;
 }
 
 .navbar__logo-container {
@@ -74,7 +79,7 @@ header {
 }
 
 .navbar__link--active {
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 .navbar__link--active:hover {
@@ -83,18 +88,37 @@ header {
 
 /* Main section */
 main {
-    width: 100%;
-    min-height: 100vh;
+    /* width: 100%; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     background-image: url(../assets/images/background-inage.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+/* Home section */
+.home {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.home__start-video-button {
+    width: 8rem;
+    padding: 1rem;
+}
+
 /* Video section */
+.video {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .video__container {
     display: flex;
     flex-direction: column;
@@ -125,11 +149,6 @@ button:active {
     color: var(--button-red-color);
 }
 
-.video__button {
-    width: 8rem;
-    padding: 1rem;
-}
-
 .video__button-skip {
     width: 6rem;
     padding: 0.5rem;
@@ -138,14 +157,16 @@ button:active {
 
 /* Choince section */
 .choice {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 
 .choice__heading {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-large);
     opacity: 0.6;
 }
 
@@ -157,6 +178,7 @@ button:active {
 .choice__button {
     width: 6rem;
     padding: 0.5rem;
+    font-size: var(--font-size-small);
 }
 
 .choice__button--blue {
@@ -179,10 +201,10 @@ button:active {
     border-color: var(--button-red-color);
 }
 
-/* Section blue pill */
+/* Blue Pill section */
 .audio {
     width: 100%;
-    height: 100vh;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,7 +213,6 @@ button:active {
 }
 
 .audio__heading {
-    font-family: 'Roboto-Bold', sans-serif;
     color: var(--primary-color);
     text-align: center;
     line-height: 1.5;
@@ -201,9 +222,9 @@ button:active {
     padding: var(--spacing-medium);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
+    max-width: 600px;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
 }
 
 .audio__return-button {
@@ -219,6 +240,12 @@ button:active {
     justify-content: center;
     align-items: center;
     gap: var(--spacing-large);
+}
+
+.audio__button {
+    width: 4.5rem;
+    padding: var(--spacing-small);
+    font-size: var(--font-size-small);
 }
 
 /* Style the range input for Safari */
@@ -245,15 +272,10 @@ button:active {
     height: 4px;
 }
 
-.audio__button {
-    width: var(--spacing-xx-large);
-    padding: 0.5rem;
-}
-
-/* Section red pill */
+/* Red Pill Section */
 .education {
     width: 100%;
-    min-height: 100vh;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,7 +284,6 @@ button:active {
 
 .education__heading {
     margin-top: var(--spacing-large);
-    font-family: 'Roboto-Bold', sans-serif;
     color: var(--primary-color);
     text-align: center;
     line-height: 1.5;
@@ -272,7 +293,7 @@ button:active {
     padding: var(--spacing-medium);
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    max-width: 1000px;
+    max-width: 600px;
 }
 
 .education__return-button {
@@ -368,8 +389,70 @@ button:active {
     background-image: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 635px) {
+
+    /* Navbar */
+    .navbar {
+        padding: var(--spacing-small);
+    }
+
+    .navbar__logo-container {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar__logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar__link a {
+        font-size: 1.6rem;
+    }
+
+    .navbar__link--active {
+        border-bottom: 1px solid var(--secondary-color);
+    }
+
+    .navbar__link--active:hover {
+        opacity: 1;
+    }
+
+    .choice__heading {
+        font-size: 1.6rem;
+        opacity: 0.6;
+    }
+
+    /* Blue Pill section */
+    .audio__controls {
+        flex-direction: column-reverse;
+        gap: var(--spacing-medium);
+    }
+
+    .audio__heading {
+        line-height: 1.4;
+        font-size: var(--font-size-small);
+        /* Semi-transparent background */
+        padding: var(--spacing-small);
+        max-width: 96%;
+        bottom: 10px;
+    }
+
     .audio__volume {
         display: none;
+    }
+
+    /* Red Pill Section */
+    .education__heading {
+        margin-top: 10px;
+        line-height: 1.5;
+        font-size: var(--font-size-small);
+        /* Semi-transparent background */
+        padding: var(--spacing-small);
+        max-width: 96%;
+    }
+
+    .education__search-label {
+        font-size: var(--font-size-small);
     }
 }
