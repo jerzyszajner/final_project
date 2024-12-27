@@ -4,7 +4,7 @@
 
 ### Netlify Deployment
 
-[Live Project on Netlify](https://choice-your-pill.netlify.app/)
+[Live Project on Netlify](https://choose-your-pill.netlify.app/)
 
 ### GitHub Repository
 
@@ -51,7 +51,7 @@ The project demonstrates knowledge in responsive design, JavaScript logic, and d
 
 ## Data Generation
 
-- The data structure (e.g., keys like name, location, school) was manually created. GPT was used only to generate placeholder values such as program 
+- The data structure (e.g., keys like name, location, school) was manually created. GPT was used only to generate placeholder values such as program
   names, locations, and details (e.g., Business Administration in Stavanger).
 
 ## Credits
@@ -61,9 +61,11 @@ The project demonstrates knowledge in responsive design, JavaScript logic, and d
 - **Inspiration Video:** [Vimeo Matrix Clip](https://vimeo.com/groups/423128/videos/7619378)
 
 ## License
+
 - License is found in the [License.txt](License.txt)
 
-## Documentation 
+## Documentation
+
 - Project documentation is found in the [project-documentation.pdf](project-documentation.pdf)
 
 ## Contact Information
