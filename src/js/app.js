@@ -262,6 +262,7 @@ const resetAudioPlayer = () => {
   audioPlayer.volume = 0.25;
   audioVolumeSlider.value = 0.25;
 };
+
 // Function to reset the video player
 const resetVideo = () => {
   videoPlayer.pause();
@@ -356,6 +357,12 @@ const handleChoiceControls = (e) => {
   }
 };
 
+// Function to update slider background dynamically
+const updateSliderBackground = () => {
+  const value = audioVolumeSlider.value * 100; // Przelicz wartość na procent
+  audioVolumeSlider.style.background = `linear-gradient(to right, rgb(1, 251, 1) ${value}%, rgb(214, 214, 214) ${value}%)`;
+};
+
 // Handle audio controls
 const handleAudioControls = (e) => {
   if (e.target.classList.contains("audio__button--play")) {
@@ -363,7 +370,7 @@ const handleAudioControls = (e) => {
     audioPlayer.src =
       "https://listenssl.ibizaglobalradio.com:8024/ibizaglobalradio.mp3";
 
-    https: audioPlayer.play();
+    audioPlayer.play();
   } else if (e.target.classList.contains("audio__button--pause")) {
     // Pause audio and remove the source
     audioPlayer.pause();
@@ -371,6 +378,7 @@ const handleAudioControls = (e) => {
   } else if (e.target.classList.contains("audio__volume")) {
     // Update audio volume based on slider value
     audioPlayer.volume = e.target.value;
+    updateSliderBackground();
   }
 };
 
@@ -412,7 +420,7 @@ function renderEducationPrograms(educationsProgramsArray) {
     const educationSchool = document.createElement("p");
     const educationType = document.createElement("p");
     const educationDuration = document.createElement("p");
-    const educationLangue = document.createElement("p");
+    const educationLanguage = document.createElement("p");
     const educationCredits = document.createElement("p");
     const educationPrice = document.createElement("p");
     const educationFavoriteButton = document.createElement("button");
@@ -426,7 +434,7 @@ function renderEducationPrograms(educationsProgramsArray) {
       educationSchool,
       educationType,
       educationDuration,
-      educationLangue,
+      educationLanguage,
       educationCredits,
       educationPrice,
       educationFavoriteButton
@@ -438,7 +446,7 @@ function renderEducationPrograms(educationsProgramsArray) {
     educationSchool.textContent = `School: ${educationProgram.school}`;
     educationType.textContent = `Type: ${educationProgram.type}`;
     educationDuration.textContent = `Duration: ${educationProgram.duration}`;
-    educationLangue.textContent = `Langue: ${educationProgram.language}`;
+    educationLanguage.textContent = `Langue: ${educationProgram.language}`;
     educationCredits.textContent = `Credits: ${educationProgram.credits}`;
     educationPrice.textContent = `Price: ${educationProgram.price} NOK`;
     educationFavoriteButton.textContent = educationProgram.isFavorited
@@ -525,12 +533,10 @@ const initializeEducationControls = () => {
 // Initialization app
 const initializeApp = () => {
   renderEducationPrograms(educationPrograms); // Initial render
+  updateSliderBackground(); // Initialize slider background
   initializeEducationControls(); // Set up event listeners for controls
   checkRadioVisibility();
 };
-
-// DOMContentLoaded
-document.addEventListener("DOMContentLoaded", initializeApp);
 
 // Add event listeners
 links.forEach((link) => link.addEventListener("click", handleLinkClick));
@@ -546,3 +552,6 @@ audioPauseButton.addEventListener("click", handleAudioControls);
 audioVolumeSlider.addEventListener("input", handleAudioControls);
 audioReturnButton.addEventListener("click", handleReturnButton);
 educationReturnButton.addEventListener("click", handleReturnButton);
+
+// DOMContentLoaded
+document.addEventListener("DOMContentLoaded", initializeApp);
