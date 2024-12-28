@@ -261,6 +261,7 @@ const resetAudioPlayer = () => {
   audioPlayer.src = "";
   audioPlayer.volume = 0.25;
   audioVolumeSlider.value = 0.25;
+  updateSliderBackground();
 };
 
 // Function to reset the video player
