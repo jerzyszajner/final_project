@@ -42,10 +42,10 @@
         <div class="navbar__links-container">
           <!-- Active links -->
           <ul class="navbar__links">
-            <li class="navbar__link navbar__link--active">
-              <a href="#" class="navbar__home-link">Home</a>
+            <li class="navbar__link navbar__link--active" data-action="home">
+              Home
             </li>
-            <li class="navbar__link hidden"><a href="#">Radio</a></li>
+            <li class="navbar__link hidden" data-action="radio">Radio</li>
           </ul>
         </div>
       </nav>
@@ -53,7 +53,11 @@
     <main>
       <!-- Section home -->
       <section class="home">
-        <button class="home__start-video-button" aria-label="Start Video">
+        <button
+          class="home__start-video-button"
+          aria-label="Start Video"
+          data-action="start-video"
+        >
           Start Video
         </button>
       </section>
@@ -68,7 +72,11 @@
           >
             <source src="./assets/video/video.mp4" type="video/mp4" />
           </video>
-          <button class="video__button-skip hidden" aria-label="Skip Video">
+          <button
+            class="video__button-skip"
+            aria-label="Skip Video"
+            data-action="skip-video"
+          >
             Skip Video
           </button>
         </div>
@@ -80,12 +88,14 @@
           <button
             class="choice__button choice__button--blue"
             aria-label="Choose Blue Pill"
+            data-action="blue-pill"
           >
             Blue Pill
           </button>
           <button
             class="choice__button choice__button--red"
             aria-label="Choose Red Pill"
+            data-action="red-pill"
           >
             Red Pill
           </button>
@@ -100,6 +110,7 @@
           <button
             class="audio__return-button"
             aria-label="Return to Previous Menu"
+            data-action="audio-return"
           >
             Return
           </button>
@@ -109,12 +120,14 @@
           <button
             class="audio__button audio__button--pause"
             aria-label="Pause Audio"
+            data-action="pause"
           >
             Pause
           </button>
           <button
             class="audio__button audio__button--play"
             aria-label="Play Audio"
+            data-action="play"
           >
             Play
           </button>
@@ -126,6 +139,7 @@
             max="1"
             step="0.05"
             value="0.25"
+            data-action="volume-range"
           />
         </div>
         <audio class="audio__player" preload="none"></audio>
@@ -140,6 +154,7 @@
           <button
             class="education__return-button"
             aria-label="Return to Previous Menu"
+            data-action="education-return"
           >
             Return
           </button>
@@ -160,19 +175,27 @@
         <div class="education__controls">
           <ul class="education__buttons">
             <li class="education__button-item">
-              <button class="show-all-button" aria-label="Show All Programs">
+              <button
+                class="show-all-button"
+                aria-label="Show All Programs"
+                data-action="show-all-programs"
+              >
                 Show All Programs
               </button>
             </li>
             <li class="education__button-item">
-              <button class="show-favorites-button" aria-label="Show Favorites">
+              <button
+                class="show-favorites-button"
+                aria-label="Show Favorites"
+                data-action="show-favorites"
+              >
                 Show Favorites
               </button>
             </li>
             <li class="education__button-item">
               <button
                 class="education__sort-button"
-                data-sort="price-low"
+                data-action="price-low"
                 aria-label="Sort by Low Price"
               >
                 Low Price
@@ -181,7 +204,7 @@
             <li class="education__button-item">
               <button
                 class="education__sort-button"
-                data-sort="price-high"
+                data-action="price-high"
                 aria-label="Sort by High Price"
               >
                 High Price

@@ -1,3 +1,6 @@
+//========================================
+//=== EDUCATION PROGRAMS
+//========================================
 const educationPrograms = [
   {
     name: "Computer Science",
@@ -221,20 +224,19 @@ const educationPrograms = [
   },
 ];
 
-// Selecting DOM elements
+//========================================
+//=== SELECTING DOM ELEMENTS
+//========================================
 const links = document.querySelectorAll(".navbar__link");
+const navbarLinksContainer = document.querySelector(".navbar__links");
 const homeSection = document.querySelector(".home");
 const videoSection = document.querySelector(".video");
 const videoPlayer = document.querySelector(".video__player");
 const skipButton = document.querySelector(".video__button-skip");
 const choiceSection = document.querySelector(".choice");
 const choiceButtonsContainer = document.querySelector(".choice__buttons");
-const choiceButtons = document.querySelectorAll(".choice__button");
-const choiceButtonBlue = document.querySelector(".choice__button--blue");
-const choiceButtonRed = document.querySelector(".choice__button--red");
 const navbar = document.querySelector(".navbar");
 const mainBackground = document.querySelector("main");
-const homeLink = document.querySelector(".navbar__home-link");
 const audioSection = document.querySelector(".audio");
 const audioPlayButton = document.querySelector(".audio__button--play");
 const audioPauseButton = document.querySelector(".audio__button--pause");
@@ -246,15 +248,20 @@ const educationListContainer = document.querySelector(".education__list");
 const educationReturnButton = document.querySelector(
   ".education__return-button"
 );
+const educationButtons = document.querySelector(".education__buttons");
 const searchInput = document.querySelector(".education__search-input");
 
-// Initialize video and audio
+//========================================
+//=== INITIALIZE VIDEO AND AUDIO
+//========================================
 videoPlayer.currentTime = 0;
 audioPlayer.volume = audioVolumeSlider.value;
 audioPlayer.src =
   "https://listenssl.ibizaglobalradio.com:8024/ibizaglobalradio.mp3";
 
-// Utility functions
+//========================================
+//=== UTILITY FUNCTIONS
+//========================================
 // Function to reset the audio player
 const resetAudioPlayer = () => {
   audioPlayer.pause();
@@ -269,23 +276,6 @@ const resetVideo = () => {
   videoPlayer.pause();
   videoPlayer.currentTime = 0;
   videoSection.classList.add("hidden");
-  skipButton.classList.add("hidden");
-};
-
-// Handle navbar link click
-const handleLinkClick = (e) => {
-  e.preventDefault();
-  links.forEach((link) => link.classList.remove("navbar__link--active"));
-  e.currentTarget.classList.add("navbar__link--active");
-
-  if (e.currentTarget.textContent === "Radio") {
-    homeSection.classList.add("hidden");
-    audioSection.classList.remove("hidden");
-    educationSection.classList.add("hidden");
-    mainBackground.classList.remove("no-background");
-    choiceSection.classList.add("hidden");
-    resetVideo();
-  }
 };
 
 // Function to show the Radio button
@@ -310,18 +300,66 @@ const markRadioAsVisible = () => {
   showRadioButton();
 };
 
-// Handle video controls
+// Function to update slider background dynamically
+const updateSliderBackground = () => {
+  const value = audioVolumeSlider.value * 100; // Convert the value to a percentage
+  audioVolumeSlider.style.background = `linear-gradient(to right, rgb(1, 251, 1) ${value}%, rgb(214, 214, 214) ${value}%)`;
+};
+
+//========================================
+//=== HANDLE NAVBAR LINKS
+//========================================
+const handleNavbarLinks = (e) => {
+  const clickedElement = e.target;
+
+  if (!clickedElement.dataset.action) return;
+
+  e.preventDefault();
+
+  links.forEach((link) => link.classList.remove("navbar__link--active"));
+
+  clickedElement.classList.add("navbar__link--active");
+
+  const action = clickedElement.dataset.action;
+
+  if (action === "home") {
+    // Home button
+    resetAudioPlayer();
+    resetVideo();
+    homeSection.classList.remove("hidden");
+    choiceSection.classList.add("hidden");
+    mainBackground.classList.remove("no-background");
+    audioSection.classList.add("hidden");
+    educationSection.classList.add("hidden");
+  } else if (action === "radio") {
+    // Radio button
+    homeSection.classList.add("hidden");
+    audioSection.classList.remove("hidden");
+    educationSection.classList.add("hidden");
+    mainBackground.classList.remove("no-background");
+    choiceSection.classList.add("hidden");
+    resetAudioPlayer();
+    resetVideo();
+  }
+};
+
+//========================================
+//=== HANDLE VIDEO CONTROLS
+//========================================
 const handleVideoControls = (e) => {
-  if (e.target.classList.contains("home__start-video-button")) {
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
+
+  if (action === "start-video") {
     // Start video player
     mainBackground.classList.add("no-background");
     videoSection.classList.remove("hidden");
     videoPlayer.play();
     homeSection.classList.add("hidden");
-    skipButton.classList.remove("hidden");
-  } else if (e.target.classList.contains("video__button-skip")) {
+    links.forEach((link) => link.classList.remove("navbar__link--active"));
+  } else if (action === "skip-video") {
     videoPlayer.currentTime = 36;
-  } else if (e.target.classList.contains("navbar__home-link")) {
+  } else if (action === "home") {
     // Reset video and navigation state
     e.preventDefault();
     resetAudioPlayer();
@@ -344,58 +382,84 @@ const handleVideoEnd = () => {
   links.forEach((link) => link.classList.remove("navbar__link--active"));
 };
 
-// Handle choice controls
+//========================================
+//=== HANDLE CHOICE BUTTONS
+//========================================
 const handleChoiceControls = (e) => {
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
+
+  const radioLink = document.querySelector(
+    '.navbar__link[data-action="radio"]'
+  );
+
   // Show or hide sections based on the pill choice
-  if (e.target.classList.contains("choice__button--blue")) {
+  if (action === "blue-pill") {
     choiceSection.classList.add("hidden");
     audioSection.classList.remove("hidden");
     markRadioAsVisible();
-  } else if (e.target.classList.contains("choice__button--red")) {
+    radioLink.classList.add("navbar__link--active");
+  } else if (action === "red-pill") {
     choiceSection.classList.add("hidden");
     mainBackground.classList.add("no-background");
     educationSection.classList.remove("hidden");
   }
 };
 
-// Function to update slider background dynamically
-const updateSliderBackground = () => {
-  const value = audioVolumeSlider.value * 100; // Przelicz wartość na procent
-  audioVolumeSlider.style.background = `linear-gradient(to right, rgb(1, 251, 1) ${value}%, rgb(214, 214, 214) ${value}%)`;
-};
-
-// Handle audio controls
+//========================================
+//=== HANDLE AUDIO CONTROLS
+//========================================
 const handleAudioControls = (e) => {
-  if (e.target.classList.contains("audio__button--play")) {
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
+
+  if (action === "play") {
     // Set the audio source and play
     audioPlayer.src =
       "https://listenssl.ibizaglobalradio.com:8024/ibizaglobalradio.mp3";
-
     audioPlayer.play();
-  } else if (e.target.classList.contains("audio__button--pause")) {
+  } else if (action === "pause") {
     // Pause audio and remove the source
     audioPlayer.pause();
     audioPlayer.src = "";
-  } else if (e.target.classList.contains("audio__volume")) {
+  } else if (action === "volume-range") {
     // Update audio volume based on slider value
     audioPlayer.volume = e.target.value;
     updateSliderBackground();
   }
 };
 
-// Handle return button
-const handleReturnButton = (e) => {
-  if (e.target.classList.contains("audio__return-button")) {
+//========================================
+//=== HANDLE RETURN BUTTONS
+//========================================
+// Audio return button
+const handleAudioReturnButton = (e) => {
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
+
+  if (action === "audio-return") {
     resetAudioPlayer();
     audioSection.classList.add("hidden");
     choiceSection.classList.remove("hidden");
-  } else if (e.target.classList.contains("education__return-button")) {
+    links.forEach((link) => link.classList.remove("navbar__link--active"));
+  }
+};
+
+// Education return button
+const handleEducationReturnButton = (e) => {
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
+
+  if (action === "education-return") {
     educationSection.classList.add("hidden");
     choiceSection.classList.remove("hidden");
     mainBackground.classList.remove("no-background");
   }
 };
 
+//======================================================
+//=== HANDLE EDUCATION (RENDERING, SORTING, FAVORITES)
+//======================================================
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 // Update localStorage
@@ -447,7 +511,7 @@ function renderEducationPrograms(educationsProgramsArray) {
     educationSchool.textContent = `School: ${educationProgram.school}`;
     educationType.textContent = `Type: ${educationProgram.type}`;
     educationDuration.textContent = `Duration: ${educationProgram.duration}`;
-    educationLanguage.textContent = `Langue: ${educationProgram.language}`;
+    educationLanguage.textContent = `Language: ${educationProgram.language}`;
     educationCredits.textContent = `Credits: ${educationProgram.credits}`;
     educationPrice.textContent = `Price: ${educationProgram.price} NOK`;
     educationFavoriteButton.textContent = educationProgram.isFavorited
@@ -467,9 +531,7 @@ function renderEducationPrograms(educationsProgramsArray) {
         );
       }
 
-      // Update localStorage
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-
+      updateLocalStorage();
       // Re-render the list
       renderEducationPrograms(educationsProgramsArray);
     });
@@ -492,67 +554,66 @@ function renderFavorites() {
 
 // Handle button clicks in the unified list
 const handleEducationButtonClick = (e) => {
-  const sortType = e.target.dataset.sort;
+  const clickedElement = e.target;
+  const action = clickedElement.dataset.action;
 
-  if (sortType === "price-low") {
+  if (action === "price-low") {
     renderEducationPrograms(
       [...educationPrograms].sort((a, b) => a.price - b.price)
     );
-  } else if (sortType === "price-high") {
+  } else if (action === "price-high") {
     renderEducationPrograms(
       [...educationPrograms].sort((a, b) => b.price - a.price)
     );
-  } else if (e.target.classList.contains("show-all-button")) {
+  } else if (action === "show-all-programs") {
     renderEducationPrograms(educationPrograms);
-  } else if (e.target.classList.contains("show-favorites-button")) {
+  } else if (action === "show-favorites") {
     renderFavorites();
   }
 };
 
-// Search Input Functionality
-searchInput.addEventListener("input", (e) => {
+// Search input functionality
+const handleSearchInput = (e) => {
   let filteredEducationPrograms = [...educationPrograms];
 
   // Filter by name or location
   filteredEducationPrograms = filteredEducationPrograms.filter((program) => {
     return (
-      program.name.toLowerCase().startsWith(e.target.value.toLowerCase()) ||
-      program.location.toLowerCase().startsWith(e.target.value.toLowerCase())
+      program.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      program.location.toLowerCase().includes(e.target.value.toLowerCase())
     );
   });
 
   // Render filteredet list
   renderEducationPrograms(filteredEducationPrograms);
-});
-
-// Initialize event listeners for button list
-const initializeEducationControls = () => {
-  const educationButtons = document.querySelector(".education__buttons");
-  educationButtons.addEventListener("click", handleEducationButtonClick);
 };
 
-// Initialization app
+//========================================
+//=== INITIALIZATION APP
+//========================================
 const initializeApp = () => {
   renderEducationPrograms(educationPrograms); // Initial render
   updateSliderBackground(); // Initialize slider background
-  initializeEducationControls(); // Set up event listeners for controls
   checkRadioVisibility();
 };
 
-// Add event listeners
-links.forEach((link) => link.addEventListener("click", handleLinkClick));
+//========================================
+//=== EVENT LISTENERS
+//========================================
+navbarLinksContainer.addEventListener("click", handleNavbarLinks);
+educationButtons.addEventListener("click", handleEducationButtonClick);
+searchInput.addEventListener("input", handleSearchInput);
 homeSection.addEventListener("click", handleVideoControls);
 skipButton.addEventListener("click", handleVideoControls);
 videoPlayer.addEventListener("ended", handleVideoEnd);
-homeLink.addEventListener("click", handleVideoControls);
-choiceButtons.forEach((button) =>
-  button.addEventListener("click", handleChoiceControls)
-);
+choiceButtonsContainer.addEventListener("click", handleChoiceControls);
 audioPlayButton.addEventListener("click", handleAudioControls);
 audioPauseButton.addEventListener("click", handleAudioControls);
 audioVolumeSlider.addEventListener("input", handleAudioControls);
-audioReturnButton.addEventListener("click", handleReturnButton);
-educationReturnButton.addEventListener("click", handleReturnButton);
+audioReturnButton.addEventListener("click", handleAudioReturnButton);
+educationReturnButton.addEventListener("click", handleEducationReturnButton);
 
-// DOMContentLoaded
+//========================================
+//=== DOM CONTENT LOADED
+//========================================
 document.addEventListener("DOMContentLoaded", initializeApp);

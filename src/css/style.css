@@ -66,20 +66,22 @@ header {
     gap: var(--spacing-large);
 }
 
-.navbar__link a {
+.navbar__link {
     color: var(--secondary-color);
     font-size: var(--font-size-large);
     opacity: 0.6;
     transition: opacity 0.3s linear;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.navbar__link a:hover {
+.navbar__link:hover {
     opacity: 1;
 }
 
 .navbar__link--active {
     border-bottom: 1px solid var(--secondary-color);
+    opacity: 1;
 }
 
 .navbar__link--active:hover {
@@ -88,7 +90,6 @@ header {
 
 /* Main section */
 main {
-    /* width: 100%; */
     flex: 1;
     display: flex;
     flex-direction: column;
